@@ -1,0 +1,4 @@
+ADAM
+adam|Adam
+ADAM/ADAMS_DUPLICATE
+[0-9]|[0-9][0-9]

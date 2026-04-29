@@ -1,0 +1,4 @@
+APPLES
+apple|apples|Apple|Apples
+WITHOUT_APPLES -
+apple|apples|Apple|Apples

@@ -1,0 +1,4 @@
+CRITICAL
+admin|secret|nonacess|noacess|git|env|config|backup|token|key|private|passwd|password|credential|test|root|sudo|internal|debug|s[0-9]\.|s\.|s[0-9][0-9]\.|pprof|dump|shadow|htpasswd|pem|cert|tls|master|cluster|registry
+CRITICAL/CLEAR -
+public|health|docs|\*
