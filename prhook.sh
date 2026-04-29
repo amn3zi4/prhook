@@ -68,6 +68,7 @@ while [[ $# -gt 0 ]]; do
     -c|--content)
       CONTENT_="true"
       INPUT_FORMAT_="files"
+      OUTPUT_FORMAT_="files"
       shift
       ;;
     *)
@@ -128,6 +129,7 @@ if [[ -z "$FILE_" && ! -t 0 ]]; then
 fi
 
 get_last_word "$FILE_"
+[[ "$CONTENT_" == "true" ]] && echo "Warning: flag -c requires -if and -of files, changing formats"
 [[ "$INPUT_FORMAT_" != "files" && "$INPUT_FORMAT_" != "text" ]] && echo "Error: input format not exists" && exit 1
 [[ "$OUTPUT_FORMAT_" != "files" && "$OUTPUT_FORMAT_" != "text" ]] && echo "Error: output formats are not exists" && exit 1
 
@@ -138,7 +140,6 @@ get_last_word "$FILE_"
 
 [[ "$ADD_" == "true" ]] && WORD_=""
 [[ "$OUTPUT_" == "output" ]] && rm -rf "$OUTPUT_/$WORD_" && mkdir -p "$OUTPUT_/$WORD_" && echo "Warning: output directory not selected, using output/$WORD_"
-[[ "$CONTENT_" == "true" && "$INPUT_FORMAT_" == "text" || "$OUTPUT_FORMAT_" == "text" ]] && echo "Warning: flag -c needs a files input and output, changing format" && INPUT_FORMAT_="files" && OUTPUT_FORMAT_="files"
 
 lengh_=$(wc -l < "$TEMPLATE_" 2>/dev/null)
 iterations_=$(($lengh_ / 2))
