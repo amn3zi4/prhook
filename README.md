@@ -63,7 +63,7 @@ test|dev|stage
 ### 1) Standard usage
 
 ```bash
-cat examples/domains.txt | ./prhook.sh -t templates/critical_endpoints.txt
+cat examples/subdomains.txt | ./prhook.sh -t templates/critical_endpoints.txt
 # Results in output/
 ```
 
