@@ -1,5 +1,4 @@
 #!/bin/bash
-set -euo pipefail
 
 TEMPLATE_=""
 FILE_=""
@@ -242,5 +241,12 @@ for ((i=1; i<=iterations_; i++)); do
   fi
   [[ "$SAVE_EMPTY_" != "true" ]] && sed -i "/^$/d" "$OUTPUT_/$WORD_/$template_/output.txt"
   ((place_ += 2))
+done
+
+find "$OUTPUT_/$WORD_/" -type f -name "output.txt" | while IFS= read -r file_; do
+  if [ ! -s "$file_" ]; then
+    dir=$(dirname "$file_")
+    rm -rf "$dir"
+  fi
 done
 [[ "$TMP_DIR" != "" ]] && rm -rf "$TMP_DIR"
